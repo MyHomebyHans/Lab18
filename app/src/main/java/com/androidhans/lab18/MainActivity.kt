@@ -28,10 +28,12 @@ class MainActivity : AppCompatActivity() {
                 nm.createNotificationChannel(channel)
                 }
             //建立Intent(意圖)、PendingIntent(待定的意图), 當通知被點選時開啟應用程式
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
+            //旗幟活動新任務或旗幟活動清除任務
+
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK //旗幟活動新任務或旗幟活動清除任務
-            val pendingIntent = PendingIntent.getActivities(this, 0, intent, 0)
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
             //定義通知的內容並發送
             val text = "您還有一張五折折價卷，滿額消費即贈現金回饋"
             val builder = NotificationCompat.Builder(this,"Lab18") //通知兼容生成器
